@@ -584,9 +584,51 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // 5. Cartilla y Servicios Rápidos
-        const btnCartilla = e.target.closest('.btn-outline-custom');
+        const btnCartilla = e.target.closest('button');
         if (btnCartilla && btnCartilla.textContent.includes('Ver Cartilla Digital')) {
-            alert('📄 Abriendo cartilla digital interactiva... (La información completa está en desarrollo)');
+            // Intentar encontrar el nombre de la mascota en la página (Dueño)
+            const petNameEl = document.querySelector('.card-title.text-accent-color');
+            let patientInfoText = petNameEl ? petNameEl.textContent.trim() : "Max";
+            let matchedPatient = null;
+            
+            const patientsList = dbPatients.length > 0 ? dbPatients : mockPatients;
+            for (let p of patientsList) {
+                if (patientInfoText.includes(p.name)) {
+                    matchedPatient = p; break;
+                }
+            }
+
+            const title = document.getElementById('actionModalTitle');
+            const body = document.getElementById('actionModalBody');
+            
+            if (matchedPatient) {
+                title.innerHTML = `<i class="bi bi-journal-medical me-2"></i>Cartilla Digital - ${matchedPatient.name}`;
+                body.innerHTML = `
+                    <div class="text-center mb-4">
+                        <img src="images/dog_avatar.png" class="rounded-circle shadow-sm mb-3" style="width: 80px; height: 80px; object-fit: cover;" alt="${matchedPatient.name}">
+                        <h5>${matchedPatient.name}</h5>
+                        <span class="badge bg-success">Saludable</span>
+                    </div>
+                    <div class="text-start p-3 bg-light rounded shadow-sm w-100 border">
+                        <p class="mb-2"><strong><i class="bi bi-tag text-primary-custom"></i> Especie:</strong> ${matchedPatient.species}</p>
+                        <p class="mb-2"><strong><i class="bi bi-info-circle text-primary-custom"></i> Raza:</strong> ${matchedPatient.breed}</p>
+                        <p class="mb-2"><strong><i class="bi bi-calendar text-primary-custom"></i> Edad:</strong> ${matchedPatient.age}</p>
+                        <p class="mb-2"><strong><i class="bi bi-speedometer2 text-primary-custom"></i> Peso:</strong> ${matchedPatient.weight}</p>
+                        <hr>
+                        <h6 class="text-accent-color mt-3"><i class="bi bi-file-earmark-medical"></i> Expediente y Notas</h6>
+                        <p class="mb-0 text-muted">${matchedPatient.history}</p>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button class="btn btn-outline-primary btn-sm" onclick="alert('Descargando PDF...')"><i class="bi bi-download"></i> Descargar Historial</button>
+                    </div>
+                `;
+            } else {
+                title.innerHTML = `<i class="bi bi-journal-medical me-2"></i>Cartilla Digital`;
+                body.innerHTML = "<p>No se encontraron detalles para este paciente.</p>";
+            }
+
+            const modal = new bootstrap.Modal(document.getElementById('genericActionModal'));
+            modal.show();
         }
 
         const btnService = e.target.closest('.btn-light');
