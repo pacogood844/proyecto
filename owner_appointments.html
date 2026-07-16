@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetCare - Mis Citas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="dashboard-layout">
+        
+        <!-- Mobile Header -->
+        <div class="mobile-header shadow-sm">
+            <div class="d-flex align-items-center">
+                <img src="images/logo.png" alt="VetCare Logo" height="30" class="me-2">
+                <span class="fs-5 fw-bold text-primary-custom">VetCare</span>
+            </div>
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar shadow-sm" id="sidebar">
+            <div class="sidebar-header d-flex align-items-center">
+                <img src="images/logo.png" alt="VetCare Logo" height="40" class="me-2">
+                <span class="fs-4 fw-bold text-primary-custom">VetCare</span>
+            </div>
+            
+            <div class="sidebar-menu">
+                <a href="owner_dashboard.html" class="sidebar-link">
+                    <i class="bi bi-house-door-fill"></i> Resumen
+                </a>
+                <a href="owner_pets.html" class="sidebar-link">
+                    <i class="bi bi-suit-heart-fill"></i> Mis Mascotas
+                </a>
+                <a href="owner_appointments.html" class="sidebar-link active">
+                    <i class="bi bi-calendar-check"></i> Mis Citas
+                </a>
+                <a href="owner_shop.html" class="sidebar-link">
+                    <i class="bi bi-shop"></i> Tienda y Servicios
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="dropdown">
+                    <a class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark" href="#" role="button" id="ownerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="avatar-img me-2 bg-primary-custom text-white d-flex align-items-center justify-content-center fw-bold">CS</div>
+                        <div>
+                            <span class="fw-medium d-block" style="line-height: 1;">Carlos Santana</span>
+                            <small class="text-muted">Dueño de Mascota</small>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu shadow border-0 w-100" aria-labelledby="ownerDropdown">
+                        <li><a class="dropdown-item text-danger" href="index.html"><i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content fade-in">
+            
+            <header class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 gap-3">
+                <div>
+                    <h2 class="text-accent-color m-0">Mis Citas Programadas</h2>
+                </div>
+                <div>
+                    <button class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#addOwnerApptModal"><i class="bi bi-calendar-plus me-1"></i> Agendar Nueva Cita</button>
+                </div>
+            </header>
+
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="text-primary-custom mb-3">Próximas Citas</h5>
+                    
+                    <!-- Cita Próxima Card -->
+                    <div class="card card-custom p-4 mb-4 border-start border-4 border-primary">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 mb-3 mb-md-0 text-center text-md-start">
+                                <div class="fs-1 fw-bold text-primary-custom">15</div>
+                                <div class="text-muted text-uppercase fw-medium">Agosto 2026</div>
+                                <div class="small text-dark mt-1"><i class="bi bi-clock"></i> 10:00 AM</div>
+                            </div>
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <h4 class="mb-1">Desparasitación Interna</h4>
+                                <p class="text-muted mb-2">Dr. Ramírez - Sucursal Principal</p>
+                                <div class="d-flex align-items-center">
+                                    <img src="images/dog_avatar.png" class="rounded-circle me-2" style="width: 25px; height: 25px;">
+                                    <span class="fw-medium">Max</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-md-end text-center">
+                                <span class="badge bg-primary-custom mb-2 px-3 py-2">Confirmada</span><br>
+                                <button class="btn btn-outline-danger btn-sm w-100 mt-2">Cancelar Cita</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <h5 class="text-muted mb-3">Historial Pasado</h5>
+                    
+                    <!-- Historial Item -->
+                    <div class="card bg-light border-0 p-3 mb-2 rounded">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-muted">
+                                <strong>10 Ene 2026</strong>
+                            </div>
+                            <div class="col-md-6 text-muted">
+                                Revisión Gastrointestinal - <span class="fw-medium">Max</span>
+                            </div>
+                            <div class="col-md-3 text-md-end">
+                                <span class="badge bg-secondary">Completada</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-light border-0 p-3 mb-2 rounded">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-muted">
+                                <strong>15 Jun 2025</strong>
+                            </div>
+                            <div class="col-md-6 text-muted">
+                                Vacunación Anual - <span class="fw-medium">Max</span>
+                            </div>
+                            <div class="col-md-3 text-md-end">
+                                <span class="badge bg-secondary">Completada</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Modal Nueva Cita Dueño -->
+    <div class="modal fade" id="addOwnerApptModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-primary-custom text-white border-0">
+                    <h5 class="modal-title"><i class="bi bi-calendar-plus me-2"></i>Solicitar Cita</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="addOwnerApptForm">
+                        <div class="mb-3">
+                            <label class="form-label">Mascota</label>
+                            <select class="form-select" id="ownerApptPet" required>
+                                <option value="" selected disabled>Selecciona tu mascota...</option>
+                                <option value="Max">Max</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Motivo de la cita</label>
+                            <select class="form-select" id="ownerApptReason" required>
+                                <option value="" selected disabled>Selecciona...</option>
+                                <option value="Revisión General">Revisión General</option>
+                                <option value="Vacunación">Vacunación</option>
+                                <option value="Estética y Baño">Estética y Baño</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fecha deseada</label>
+                            <input type="date" class="form-control" id="ownerApptDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Hora preferida</label>
+                            <input type="time" class="form-control" id="ownerApptTime" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 pt-0 px-4 pb-4">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary-custom" id="saveOwnerApptBtn">Solicitar Cita</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const saveOwnerApptBtn = document.getElementById('saveOwnerApptBtn');
+            const addOwnerApptForm = document.getElementById('addOwnerApptForm');
+            
+            if (saveOwnerApptBtn) {
+                saveOwnerApptBtn.addEventListener('click', () => {
+                    const pet = document.getElementById('ownerApptPet').value;
+                    const reason = document.getElementById('ownerApptReason').value;
+                    const date = document.getElementById('ownerApptDate').value;
+                    let time = document.getElementById('ownerApptTime').value;
+                    
+                    if(!pet || !reason || !date || !time) { alert("Completa todos los campos"); return; }
+                    
+                    // Format time
+                    const [h, m] = time.split(':');
+                    const ampm = h >= 12 ? 'PM' : 'AM';
+                    const h12 = h % 12 || 12;
+                    time = `${h12}:${m} ${ampm}`;
+
+                    // Format date (e.g. 2026-08-20 -> 20 Agosto 2026)
+                    const d = new Date(date);
+                    const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+                    const dateStr = `${d.getDate() + 1} ${months[d.getMonth()]} ${d.getFullYear()}`;
+
+                    const newApptHTML = `
+                    <div class="card card-custom p-4 mb-4 border-start border-4 border-warning">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 mb-3 mb-md-0 text-center text-md-start">
+                                <div class="fs-1 fw-bold text-warning">${d.getDate() + 1}</div>
+                                <div class="text-muted text-uppercase fw-medium">${months[d.getMonth()]} ${d.getFullYear()}</div>
+                                <div class="small text-dark mt-1"><i class="bi bi-clock"></i> ${time}</div>
+                            </div>
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <h4 class="mb-1">${reason}</h4>
+                                <p class="text-muted mb-2">Dr. Ramírez - Sucursal Principal</p>
+                                <div class="d-flex align-items-center">
+                                    <span class="fw-medium">${pet}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-md-end text-center">
+                                <span class="badge bg-warning text-dark mb-2 px-3 py-2">Pendiente</span><br>
+                                <button class="btn btn-outline-danger btn-sm w-100 mt-2">Cancelar Cita</button>
+                            </div>
+                        </div>
+                    </div>`;
+
+                    const targetContainer = document.querySelector('.col-12');
+                    // Insert right after the h5
+                    const h5 = targetContainer.querySelector('h5');
+                    h5.insertAdjacentHTML('afterend', newApptHTML);
+
+                    const modalEl = document.getElementById('addOwnerApptModal');
+                    const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+                    modal.hide();
+                    addOwnerApptForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

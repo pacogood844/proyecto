@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetCare - Pacientes</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="dashboard-layout">
+        
+        <!-- Mobile Header -->
+        <div class="mobile-header shadow-sm">
+            <div class="d-flex align-items-center">
+                <img src="images/logo.png" alt="VetCare Logo" height="30" class="me-2">
+                <span class="fs-5 fw-bold text-primary-custom">VetCare</span>
+            </div>
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar shadow-sm" id="sidebar">
+            <div class="sidebar-header d-flex align-items-center">
+                <img src="images/logo.png" alt="VetCare Logo" height="40" class="me-2">
+                <span class="fs-4 fw-bold text-primary-custom">VetCare</span>
+            </div>
+            
+            <div class="sidebar-menu">
+                <a href="vet_dashboard.html" class="sidebar-link">
+                    <i class="bi bi-grid-1x2-fill"></i> Panel General
+                </a>
+                <a href="vet_appointments.html" class="sidebar-link">
+                    <i class="bi bi-calendar-event"></i> Agenda y Citas
+                </a>
+                <a href="vet_patients.html" class="sidebar-link active">
+                    <i class="bi bi-people-fill"></i> Pacientes
+                </a>
+                <a href="vet_inventory.html" class="sidebar-link d-flex justify-content-between align-items-center">
+                    <div><i class="bi bi-box-seam"></i> Inventario</div>
+                    <span class="badge bg-danger rounded-pill">2</span>
+                </a>
+                <a href="#" class="sidebar-link text-muted">
+                    <i class="bi bi-file-earmark-medical"></i> Reportes
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="dropdown">
+                    <a class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark" href="#" role="button" id="vetDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="images/vet_avatar.png" alt="Avatar" class="avatar-img me-2" style="width: 40px; height: 40px;">
+                        <div>
+                            <span class="fw-medium d-block" style="line-height: 1;">Dr. Ramírez</span>
+                            <small class="text-muted">Veterinario Titular</small>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu shadow border-0 w-100" aria-labelledby="vetDropdown">
+                        <li><a class="dropdown-item text-danger" href="index.html"><i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content fade-in">
+            
+            <header class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+                <div>
+                    <h2 class="text-accent-color m-0">Directorio de Pacientes</h2>
+                </div>
+                <div class="d-flex gap-2">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white"><i class="bi bi-search text-muted"></i></span>
+                        <input type="text" id="searchPatientInput" class="form-control border-start-0 ps-0" placeholder="Buscar por nombre o dueño...">
+                    </div>
+                    <button class="btn btn-primary-custom text-nowrap" data-bs-toggle="modal" data-bs-target="#addPetModal"><i class="bi bi-plus-lg me-1"></i> Añadir</button>
+                </div>
+            </header>
+
+            <div class="card card-custom p-0 overflow-hidden">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="py-3 px-4">Paciente</th>
+                                <th class="py-3">Especie / Raza</th>
+                                <th class="py-3">Dueño</th>
+                                <th class="py-3">Teléfono</th>
+                                <th class="py-3">Estado</th>
+                                <th class="py-3 text-end px-4">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="patientsTableBody">
+                            <tr>
+                                <td class="px-4">
+                                    <div class="d-flex align-items-center">
+                                        <img src="images/dog_avatar.png" class="avatar-img me-3" style="width: 40px; height: 40px;">
+                                        <div>
+                                            <div class="fw-bold">Max</div>
+                                            <div class="text-muted small">ID: #PT-001</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Perro<br><small class="text-muted">Golden Retriever</small></td>
+                                <td>Carlos Santana</td>
+                                <td>555-0192</td>
+                                <td><span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-2">Activo</span></td>
+                                <td class="text-end px-4">
+                                    <button class="btn btn-sm btn-outline-primary" title="Ver Historial"><i class="bi bi-journal-medical"></i></button>
+                                    <button class="btn btn-sm btn-outline-secondary" title="Editar"><i class="bi bi-pencil"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-img me-3 bg-secondary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">L</div>
+                                        <div>
+                                            <div class="fw-bold">Luna</div>
+                                            <div class="text-muted small">ID: #PT-002</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Gato<br><small class="text-muted">Siamés</small></td>
+                                <td>María Pérez</td>
+                                <td>555-8374</td>
+                                <td><span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-2">Activo</span></td>
+                                <td class="text-end px-4">
+                                    <button class="btn btn-sm btn-outline-primary" title="Ver Historial"><i class="bi bi-journal-medical"></i></button>
+                                    <button class="btn btn-sm btn-outline-secondary" title="Editar"><i class="bi bi-pencil"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-img me-3 bg-secondary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">R</div>
+                                        <div>
+                                            <div class="fw-bold">Rocky</div>
+                                            <div class="text-muted small">ID: #PT-003</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Perro<br><small class="text-muted">Bulldog</small></td>
+                                <td>Juan López</td>
+                                <td>555-1122</td>
+                                <td><span class="badge bg-warning-subtle text-warning border border-warning-subtle rounded-pill px-2">Tratamiento</span></td>
+                                <td class="text-end px-4">
+                                    <button class="btn btn-sm btn-outline-primary" title="Ver Historial"><i class="bi bi-journal-medical"></i></button>
+                                    <button class="btn btn-sm btn-outline-secondary" title="Editar"><i class="bi bi-pencil"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer bg-white py-3 border-top d-flex justify-content-between align-items-center">
+                    <span class="text-muted small">Mostrando 3 de 156 pacientes</span>
+                    <nav>
+                        <ul class="pagination pagination-sm mb-0">
+                            <li class="page-item disabled"><a class="page-link" href="#">Ant</a></li>
+                            <li class="page-item active"><a class="page-link bg-primary-custom border-primary-custom" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link text-primary-custom" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link text-primary-custom" href="#">Sig</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Modal Añadir Mascota -->
+    <div class="modal fade" id="addPetModal" tabindex="-1" aria-labelledby="addPetModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-primary-custom text-white border-0">
+                    <h5 class="modal-title" id="addPetModalLabel"><i class="bi bi-plus-circle me-2"></i>Añadir Nueva Mascota</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="addPetForm">
+                        <div class="mb-3">
+                            <label for="petName" class="form-label">Nombre de la Mascota <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="petName" placeholder="Ej. Max" required>
+                            <div class="invalid-feedback" id="petNameError"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="petSpecies" class="form-label">Especie <span class="text-danger">*</span></label>
+                                <select class="form-select" id="petSpecies" required>
+                                    <option value="" selected disabled>Seleccione...</option>
+                                    <option value="Perro">Perro</option>
+                                    <option value="Gato">Gato</option>
+                                    <option value="Ave">Ave</option>
+                                    <option value="Reptil">Reptil</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="petBreed" class="form-label">Raza</label>
+                                <input type="text" class="form-control" id="petBreed" placeholder="Ej. Bulldog">
+                            </div>
+                        </div>
+                        <div class="mb-3" id="specifySpeciesContainer" style="display: none;">
+                            <label for="petSpeciesOther" class="form-label">Especifique Especie</label>
+                            <input type="text" class="form-control" id="petSpeciesOther" placeholder="Ej. Hurón, Iguana...">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ownerName" class="form-label">Nombre del Dueño</label>
+                            <input type="text" class="form-control" id="ownerName" placeholder="Ej. Carlos Santana">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 pt-0 px-4 pb-4">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary-custom" id="savePetBtn">Guardar Paciente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savePetBtn = document.getElementById('savePetBtn');
+            const addPetForm = document.getElementById('addPetForm');
+            const petName = document.getElementById('petName');
+            const petSpecies = document.getElementById('petSpecies');
+            const petBreed = document.getElementById('petBreed');
+            const ownerName = document.getElementById('ownerName');
+            const petSpeciesOther = document.getElementById('petSpeciesOther');
+            const patientsTableBody = document.getElementById('patientsTableBody');
+            
+            // Re-utilizar validación de main.js si es posible o hacerla local
+            const blacklist = ['pene', 'vagina', 'puta', 'puto', 'verga', 'mierda', 'cabron', 'pendejo', 'zorra', 'perra'];
+            const isValidName = (name) => {
+                const trimmed = name.trim();
+                const lowerName = trimmed.toLowerCase();
+                for (let word of blacklist) {
+                    if (lowerName.includes(word)) return false;
+                }
+                if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(trimmed)) return false;
+                if (lowerName === 'sol') return true;
+                return trimmed.length >= 3;
+            };
+
+            if (savePetBtn) {
+                savePetBtn.addEventListener('click', () => {
+                    petName.classList.remove('is-invalid');
+                    
+                    if (!isValidName(petName.value)) {
+                        petName.classList.add('is-invalid');
+                        document.getElementById('petNameError').innerText = 'Ingrese un nombre adecuado (Minimo 3 letras)';
+                        return;
+                    }
+                    if (!petSpecies.value) {
+                        alert('Seleccione una especie');
+                        return;
+                    }
+
+                    let finalSpecies = petSpecies.value;
+                    if (finalSpecies === 'Otro' && petSpeciesOther.value.trim() !== '') {
+                        finalSpecies = petSpeciesOther.value.trim();
+                    }
+
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
+                        <td class="px-4">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-img me-3 bg-primary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">${petName.value.charAt(0).toUpperCase()}</div>
+                                <div>
+                                    <div class="fw-bold">${petName.value}</div>
+                                    <div class="text-muted small">ID: #PT-NEW</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>${finalSpecies}<br><small class="text-muted">${petBreed.value || 'N/A'}</small></td>
+                        <td>${ownerName.value || 'N/A'}</td>
+                        <td>N/A</td>
+                        <td><span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-2">Activo</span></td>
+                        <td class="text-end px-4">
+                            <button class="btn btn-sm btn-outline-primary" title="Ver Historial"><i class="bi bi-journal-medical"></i></button>
+                            <button class="btn btn-sm btn-outline-secondary" title="Editar"><i class="bi bi-pencil"></i></button>
+                        </td>
+                    `;
+                    patientsTableBody.prepend(newRow);
+                    
+                    const modalEl = document.getElementById('addPetModal');
+                    const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+                    modal.hide();
+                    addPetForm.reset();
+                    document.getElementById('specifySpeciesContainer').style.display = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

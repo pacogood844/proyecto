@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetCare - Iniciar Sesión</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="d-flex align-items-center py-4 bg-body-tertiary" style="min-height: 100vh;">
+
+    <main class="form-signin w-100 m-auto" style="max-width: 450px;">
+        <div class="card card-custom p-4 fade-in">
+            <div class="text-center mb-4">
+                <a href="index.html">
+                    <img class="mb-4" src="images/logo.png" alt="VetCare Logo" height="60">
+                </a>
+                <h1 class="h3 mb-3 fw-bold text-primary-custom" id="loginTitle">Iniciar Sesión</h1>
+                <p class="text-secondary">Ingresa tus credenciales para continuar</p>
+            </div>
+
+            <form id="loginForm" novalidate>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" required>
+                    <label for="email">Correo electrónico (ej. usuario@gmail.com)</label>
+                    <div id="emailError" class="invalid-feedback-custom"></div>
+                </div>
+                
+                <div class="form-floating mb-4">
+                    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                    <label for="password">Contraseña</label>
+                    <div id="passError" class="invalid-feedback-custom"></div>
+                </div>
+
+                <button class="w-100 btn btn-lg btn-primary-custom" type="submit">Ingresar</button>
+                
+                <div class="text-center mt-4">
+                    <p class="mb-0">¿No tienes cuenta? <a href="#" id="registerLink" class="text-secondary-custom fw-bold text-decoration-none">Regístrate aquí</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Set dynamic titles and links based on role
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const role = urlParams.get('role');
+            const title = document.getElementById('loginTitle');
+            const registerLink = document.getElementById('registerLink');
+            
+            if (role === 'vet') {
+                title.textContent = 'Acceso Veterinario';
+                registerLink.href = 'register.html?role=vet';
+            } else {
+                title.textContent = 'Acceso Dueño de Mascota';
+                registerLink.href = 'register.html?role=owner';
+            }
+        });
+    </script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

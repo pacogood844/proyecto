@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetCare - Ajustes de Perfil</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="dashboard-layout">
+        
+        <!-- Mobile Header -->
+        <div class="mobile-header shadow-sm">
+            <div class="d-flex align-items-center">
+                <img src="images/logo.png" alt="VetCare Logo" height="30" class="me-2">
+                <span class="fs-5 fw-bold text-primary-custom">VetCare</span>
+            </div>
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar shadow-sm" id="sidebar">
+            <div class="sidebar-header d-flex align-items-center">
+                <img src="images/logo.png" alt="VetCare Logo" height="40" class="me-2">
+                <span class="fs-4 fw-bold text-primary-custom">VetCare</span>
+            </div>
+            
+            <div class="sidebar-menu">
+                <a href="vet_dashboard.html" class="sidebar-link">
+                    <i class="bi bi-grid-1x2-fill"></i> Panel General
+                </a>
+                <a href="vet_appointments.html" class="sidebar-link">
+                    <i class="bi bi-calendar-event"></i> Agenda y Citas
+                </a>
+                <a href="vet_patients.html" class="sidebar-link">
+                    <i class="bi bi-people-fill"></i> Pacientes
+                </a>
+                <a href="vet_inventory.html" class="sidebar-link d-flex justify-content-between align-items-center">
+                    <div><i class="bi bi-box-seam"></i> Inventario</div>
+                    <span class="badge bg-danger rounded-pill">2</span>
+                </a>
+                <a href="vet_reports.html" class="sidebar-link">
+                    <i class="bi bi-bar-chart-fill"></i> Reportes
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="dropdown">
+                    <a class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark" href="#" role="button" id="vetDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="images/vet_avatar.png" alt="Avatar" class="avatar-img me-2" style="width: 40px; height: 40px;">
+                        <div>
+                            <span class="fw-medium d-block" style="line-height: 1;">Dr. Ramírez</span>
+                            <small class="text-muted">Veterinario Titular</small>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu shadow border-0 w-100" aria-labelledby="vetDropdown">
+                        <li><a class="dropdown-item" href="vet_settings.html"><i class="bi bi-gear me-2"></i>Ajustes</a></li>
+                        <li><a class="dropdown-item text-danger" href="index.html"><i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content fade-in">
+            
+            <header class="mb-4">
+                <h2 class="text-accent-color m-0">Ajustes de Perfil</h2>
+                <p class="text-secondary mt-1 mb-0">Gestiona tu información personal y credenciales de acceso.</p>
+            </header>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card card-custom p-4">
+                        <form id="settingsForm">
+                            <h5 class="text-primary-custom mb-4">Información Personal</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control" value="Dr. Ramírez">
+                                </div>
+                                <div class="col-md-6 mt-3 mt-md-0">
+                                    <label class="form-label">Especialidad</label>
+                                    <input type="text" class="form-control" value="Veterinario General y Exóticos">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" value="dr.ramirez@vetcare.com.ec">
+                                </div>
+                                <div class="col-md-6 mt-3 mt-md-0">
+                                    <label class="form-label">Teléfono de Contacto</label>
+                                    <input type="text" class="form-control" value="0991234567">
+                                </div>
+                            </div>
+
+                            <h5 class="text-primary-custom mb-4 border-top pt-4">Seguridad</h5>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Contraseña Actual</label>
+                                    <input type="password" class="form-control" placeholder="••••••••">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label">Nueva Contraseña</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                                <div class="col-md-6 mt-3 mt-md-0">
+                                    <label class="form-label">Confirmar Contraseña</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-end mt-4">
+                                <button type="button" class="btn btn-primary-custom px-4" onclick="alert('Perfil actualizado correctamente')">Guardar Cambios</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="card card-custom p-4 text-center">
+                        <h5 class="text-primary-custom mb-4">Foto de Perfil</h5>
+                        <img src="images/vet_avatar.png" alt="Avatar" class="rounded-circle mb-3 border border-3 border-primary-custom" style="width: 150px; height: 150px; object-fit: cover;">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-primary btn-sm">Cambiar Foto</button>
+                            <button class="btn btn-outline-danger btn-sm">Eliminar Foto</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
