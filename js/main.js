@@ -647,6 +647,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         }
+        // 8. Funciones No Programadas (Fallbacks de Desarrollo)
+        const btn = e.target.closest('button');
+        if (btn) {
+            const btnText = btn.textContent.trim();
+            if (
+                btn.id === 'saveApptBtn' || 
+                btn.id === 'saveProductBtn' || 
+                btn.id === 'savePetBtn' || 
+                btnText === 'Semana' || 
+                btnText === 'Mes' || 
+                btnText === 'Cambiar Foto' || 
+                btnText === 'Eliminar Foto' ||
+                btn.title === 'Ver Historial' ||
+                btnText.includes('Descargar PDF') ||
+                btnText.includes('Descargar') ||
+                btnText.includes('Exportar')
+            ) {
+                alert(`[Módulo en Desarrollo] La acción que intentas realizar (${btnText || btn.title}) es solo visual por el momento y no está conectada a la Base de Datos.`);
+            }
+        }
+
     });
 
     // 8. Eventos de los Selects (Simular filtros de días/meses)
