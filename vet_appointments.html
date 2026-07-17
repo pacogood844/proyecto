@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VetCare - Sistema veterinario para la gestión integral de tu clínica y el cuidado de mascotas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>VetCare - Agenda y Citas</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -60,16 +63,16 @@
                 <div class="dropdown">
                     <a class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark" href="#"
                         role="button" id="vetDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="images/vet_avatar.png" alt="Avatar" class="avatar-img me-2"
+                        <img src="images/vet_avatar.png" loading="lazy" alt="Avatar" class="avatar-img me-2"
                             style="width: 40px; height: 40px;">
                         <div>
-                            <span class="fw-medium d-block" style="line-height: 1;">Dr. Ramírez</span>
+                            <span class="fw-medium d-block" style="line-height: 1;">Dr. RamÃ­rez</span>
                             <small class="text-muted">Veterinario Titular</small>
                         </div>
                     </a>
                     <ul class="dropdown-menu shadow border-0 w-100" aria-labelledby="vetDropdown">
                         <li><a class="dropdown-item text-danger" href="index.html"><i
-                                    class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
+                                    class="bi bi-box-arrow-right me-2"></i>Cerrar SesiÃ³n</a></li>
                     </ul>
                 </div>
             </div>
@@ -81,7 +84,7 @@
             <header class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
                 <div>
                     <h2 class="text-accent-color m-0">Agenda de Citas</h2>
-                    <p class="text-secondary mt-1 mb-0">Gestión de turnos y reservaciones.</p>
+                    <p class="text-secondary mt-1 mb-0">GestiÃ³n de turnos y reservaciones.</p>
                 </div>
                 <div>
                     <button class="btn btn-primary-custom text-nowrap" data-bs-toggle="modal"
@@ -108,7 +111,7 @@
                                 <th style="width: 80px;">Hora</th>
                                 <th>Lun 13</th>
                                 <th>Mar 14</th>
-                                <th class="bg-primary-subtle border-primary">Mié 15 (Hoy)</th>
+                                <th class="bg-primary-subtle border-primary">MiÃ© 15 (Hoy)</th>
                                 <th>Jue 16</th>
                                 <th>Vie 17</th>
                             </tr>
@@ -127,17 +130,17 @@
                             <tr>
                                 <td class="text-muted small">10:00 AM</td>
                                 <td>
-                                    <div class="bg-success text-white p-1 rounded small">Maya - Revisión</div>
+                                    <div class="bg-success text-white p-1 rounded small">Maya - RevisiÃ³n</div>
                                 </td>
                                 <td></td>
                                 <td class="bg-primary-subtle border-primary">
-                                    <div class="bg-warning text-dark p-1 rounded small fw-bold">Canela - Revisión
+                                    <div class="bg-warning text-dark p-1 rounded small fw-bold">Canela - RevisiÃ³n
                                         General
                                     </div>
                                 </td>
                                 <td></td>
                                 <td>
-                                    <div class="bg-secondary text-white p-1 rounded small">Reunión Equipo</div>
+                                    <div class="bg-secondary text-white p-1 rounded small">ReuniÃ³n Equipo</div>
                                 </td>
                             </tr>
                             <tr>
@@ -164,7 +167,7 @@
                                 </td>
                                 <td class="bg-primary-subtle border-primary"></td>
                                 <td>
-                                    <div class="bg-success text-white p-1 rounded small">Bella - Revisión</div>
+                                    <div class="bg-success text-white p-1 rounded small">Bella - RevisiÃ³n</div>
                                 </td>
                                 <td></td>
                             </tr>
@@ -195,19 +198,19 @@
                         <div class="mb-3">
                             <label class="form-label">Motivo</label>
                             <select class="form-select" id="apptReason" required>
-                                <option value="Revisión">Revisión General</option>
-                                <option value="Vacuna">Vacunación</option>
+                                <option value="RevisiÃ³n">RevisiÃ³n General</option>
+                                <option value="Vacuna">VacunaciÃ³n</option>
                                 <option value="Limpieza">Limpieza Dental</option>
                                 <option value="Urgencia">Urgencia</option>
                             </select>
                         </div>
                         <div class="row">
                             <div class="col-6 mb-3">
-                                <label class="form-label">Día</label>
+                                <label class="form-label">DÃ­a</label>
                                 <select class="form-select" id="apptDay">
                                     <option value="1">Lunes</option>
                                     <option value="2">Martes</option>
-                                    <option value="3" selected>Miércoles</option>
+                                    <option value="3" selected>MiÃ©rcoles</option>
                                     <option value="4">Jueves</option>
                                     <option value="5">Viernes</option>
                                 </select>
@@ -253,7 +256,7 @@
                     let bgColor = 'bg-primary';
                     if (reason === 'Urgencia') bgColor = 'bg-danger';
                     if (reason === 'Limpieza') bgColor = 'bg-info';
-                    if (reason === 'Revisión') bgColor = 'bg-success';
+                    if (reason === 'RevisiÃ³n') bgColor = 'bg-success';
 
                     const tbody = document.querySelector('tbody');
                     const rows = tbody.querySelectorAll('tr');

@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VetCare - Sistema veterinario para la gestión integral de tu clínica y el cuidado de mascotas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>VetCare - Registro</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,26 +35,26 @@
 
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" required>
-                    <label for="email">Correo electrónico (debe terminar en .com)</label>
+                    <label for="email">Correo electrÃ³nico (debe terminar en .com)</label>
                     <div id="emailError" class="invalid-feedback-custom"></div>
                 </div>
 
                 <div class="form-floating mb-3">
                     <input type="tel" class="form-control" id="phone" placeholder="1234567890" required>
-                    <label for="phone">Teléfono/Celular (10 dígitos)</label>
+                    <label for="phone">TelÃ©fono/Celular (10 dÃ­gitos)</label>
                     <div id="phoneError" class="invalid-feedback-custom"></div>
                 </div>
                 
                 <div class="form-floating mb-4">
-                    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
-                    <label for="password">Contraseña (Mínimo 6 caracteres)</label>
+                    <input type="password" class="form-control" id="password" placeholder="ContraseÃ±a" required>
+                    <label for="password">ContraseÃ±a (MÃ­nimo 6 caracteres)</label>
                     <div id="passError" class="invalid-feedback-custom"></div>
                 </div>
 
                 <button class="w-100 btn btn-lg btn-primary-custom" type="submit">Registrarse</button>
                 
                 <div class="text-center mt-4">
-                    <p class="mb-0">¿Ya tienes cuenta? <a href="#" id="loginLink" class="text-secondary-custom fw-bold text-decoration-none">Inicia sesión</a></p>
+                    <p class="mb-0">Â¿Ya tienes cuenta? <a href="#" id="loginLink" class="text-secondary-custom fw-bold text-decoration-none">Inicia sesiÃ³n</a></p>
                 </div>
             </form>
         </div>
@@ -68,7 +71,7 @@
                 title.textContent = 'Registro Veterinario';
                 loginLink.href = 'login.html?role=vet';
             } else {
-                title.textContent = 'Registro Dueño de Mascota';
+                title.textContent = 'Registro DueÃ±o de Mascota';
                 loginLink.href = 'login.html?role=owner';
             }
         });
@@ -80,3 +83,4 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+
