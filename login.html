@@ -37,8 +37,8 @@
                 </div>
 
                 <div class="form-floating mb-4">
-                    <input type="password" class="form-control" id="password" placeholder="Contrase�a" required>
-                    <label for="password">Contrase�a</label>
+                    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                    <label for="password">Contraseña</label>
                     <div id="passError" class="invalid-feedback-custom"></div>
                 </div>
 
@@ -62,8 +62,8 @@
                 title.textContent = 'Acceso Veterinario';
                 registerLink.href = 'register.html?role=vet';
             } else {
-                title.textContent = 'Acceso Due�o de Mascota';
-                // Ocultar registro para due�os, solo el vet puede crearlos
+                title.textContent = 'Acceso Dueño de Mascota';
+                // Ocultar registro para dueños, solo el vet puede crearlos
                 registerLink.parentElement.style.display = 'none';
             }
         });
