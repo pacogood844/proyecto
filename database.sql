@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS users (
     full_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     phone VARCHAR(20),
+    address VARCHAR(255),
     password VARCHAR(255) NOT NULL,
     role ENUM('owner', 'vet') DEFAULT 'owner',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -29,6 +30,10 @@ CREATE TABLE IF NOT EXISTS pets (
     age VARCHAR(20),
     weight VARCHAR(20),
     history TEXT,
+    vaccines TEXT,
+    deworming TEXT,
+    observations TEXT,
+    photo VARCHAR(255) DEFAULT 'images/dog_avatar.png',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE
 );

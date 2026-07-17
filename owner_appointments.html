@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +14,11 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <div class="dashboard-layout">
-        
+
         <!-- Mobile Header -->
         <div class="mobile-header shadow-sm">
             <div class="d-flex align-items-center">
@@ -34,7 +36,7 @@
                 <img src="images/logo.png" alt="VetCare Logo" height="40" class="me-2">
                 <span class="fs-4 fw-bold text-primary-custom">VetCare</span>
             </div>
-            
+
             <div class="sidebar-menu">
                 <a href="owner_dashboard.html" class="sidebar-link">
                     <i class="bi bi-house-door-fill"></i> Resumen
@@ -52,15 +54,19 @@
 
             <div class="sidebar-footer">
                 <div class="dropdown">
-                    <a class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark" href="#" role="button" id="ownerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="avatar-img me-2 bg-primary-custom text-white d-flex align-items-center justify-content-center fw-bold">CS</div>
+                    <a class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark" href="#"
+                        role="button" id="ownerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div
+                            class="avatar-img me-2 bg-primary-custom text-white d-flex align-items-center justify-content-center fw-bold">
+                            NA</div>
                         <div>
-                            <span class="fw-medium d-block" style="line-height: 1;">Carlos Santana</span>
-                            <small class="text-muted">Dueño de Mascota</small>
+                            <span class="fw-medium d-block" style="line-height: 1;">Nelly Aguiar</span>
+                            <small class="text-muted">Dueña de Mascota</small>
                         </div>
                     </a>
                     <ul class="dropdown-menu shadow border-0 w-100" aria-labelledby="ownerDropdown">
-                        <li><a class="dropdown-item text-danger" href="index.html"><i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
+                        <li><a class="dropdown-item text-danger" href="index.html"><i
+                                    class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -68,20 +74,21 @@
 
         <!-- Main Content -->
         <main class="main-content fade-in">
-            
+
             <header class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 gap-3">
                 <div>
                     <h2 class="text-accent-color m-0">Mis Citas Programadas</h2>
                 </div>
                 <div>
-                    <button class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#addOwnerApptModal"><i class="bi bi-calendar-plus me-1"></i> Agendar Nueva Cita</button>
+                    <button class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#addOwnerApptModal"><i
+                            class="bi bi-calendar-plus me-1"></i> Agendar Nueva Cita</button>
                 </div>
             </header>
 
             <div class="row">
                 <div class="col-12">
                     <h5 class="text-primary-custom mb-3">Próximas Citas</h5>
-                    
+
                     <!-- Cita Próxima Card -->
                     <div class="card card-custom p-4 mb-4 border-start border-4 border-primary">
                         <div class="row align-items-center">
@@ -94,8 +101,9 @@
                                 <h4 class="mb-1">Desparasitación Interna</h4>
                                 <p class="text-muted mb-2">Dr. Ramírez - Sucursal Principal</p>
                                 <div class="d-flex align-items-center">
-                                    <img src="images/dog_avatar.png" class="rounded-circle me-2" style="width: 25px; height: 25px;">
-                                    <span class="fw-medium">Max</span>
+                                    <img src="images/Maya_.png" class="rounded-circle me-2"
+                                        style="width: 25px; height: 25px;">
+                                    <span class="fw-medium">Maya</span>
                                 </div>
                             </div>
                             <div class="col-md-3 text-md-end text-center">
@@ -108,7 +116,7 @@
 
                 <div class="col-12 mt-4">
                     <h5 class="text-muted mb-3">Historial Pasado</h5>
-                    
+
                     <!-- Historial Item -->
                     <div class="card bg-light border-0 p-3 mb-2 rounded">
                         <div class="row align-items-center">
@@ -116,21 +124,21 @@
                                 <strong>10 Ene 2026</strong>
                             </div>
                             <div class="col-md-6 text-muted">
-                                Revisión Gastrointestinal - <span class="fw-medium">Max</span>
+                                Revisión Gastrointestinal - <span class="fw-medium">Maya</span>
                             </div>
                             <div class="col-md-3 text-md-end">
                                 <span class="badge bg-secondary">Completada</span>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="card bg-light border-0 p-3 mb-2 rounded">
                         <div class="row align-items-center">
                             <div class="col-md-3 text-muted">
                                 <strong>15 Jun 2025</strong>
                             </div>
                             <div class="col-md-6 text-muted">
-                                Vacunación Anual - <span class="fw-medium">Max</span>
+                                Vacunación Anual - <span class="fw-medium">Maya</span>
                             </div>
                             <div class="col-md-3 text-md-end">
                                 <span class="badge bg-secondary">Completada</span>
@@ -149,7 +157,8 @@
             <div class="modal-content border-0 shadow">
                 <div class="modal-header bg-primary-custom text-white border-0">
                     <h5 class="modal-title"><i class="bi bi-calendar-plus me-2"></i>Solicitar Cita</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
                     <form id="addOwnerApptForm">
@@ -157,7 +166,7 @@
                             <label class="form-label">Mascota</label>
                             <select class="form-select" id="ownerApptPet" required>
                                 <option value="" selected disabled>Selecciona tu mascota...</option>
-                                <option value="Max">Max</option>
+                                <option value="Maya">Maya</option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -195,16 +204,16 @@
         document.addEventListener('DOMContentLoaded', () => {
             const saveOwnerApptBtn = document.getElementById('saveOwnerApptBtn');
             const addOwnerApptForm = document.getElementById('addOwnerApptForm');
-            
+
             if (saveOwnerApptBtn) {
                 saveOwnerApptBtn.addEventListener('click', () => {
                     const pet = document.getElementById('ownerApptPet').value;
                     const reason = document.getElementById('ownerApptReason').value;
                     const date = document.getElementById('ownerApptDate').value;
                     let time = document.getElementById('ownerApptTime').value;
-                    
-                    if(!pet || !reason || !date || !time) { alert("Completa todos los campos"); return; }
-                    
+
+                    if (!pet || !reason || !date || !time) { alert("Completa todos los campos"); return; }
+
                     // Format time
                     const [h, m] = time.split(':');
                     const ampm = h >= 12 ? 'PM' : 'AM';
@@ -252,4 +261,5 @@
         });
     </script>
 </body>
+
 </html>

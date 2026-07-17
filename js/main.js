@@ -16,9 +16,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(trimmed)) return false;
+        
+        // Bloquear letras repetidas 3 o más veces consecutivas (ej. "asddddd")
+        if (/(.)\1{2,}/.test(lowerName)) return false;
+        
+        // Bloquear nombres largos sin al menos una vocal (ej. "hjklmnb")
+        if (!/[aeiouáéíóú]/i.test(lowerName) && lowerName.length > 2) return false;
+
         if (lowerName === 'sol') return true;
         return trimmed.length >= 3;
     };
+
+    // Filtro estricto para campos de teléfono (no permite tipear letras)
+    document.querySelectorAll('input[type="tel"]').forEach(input => {
+        input.addEventListener('input', function() {
+            this.value = this.value.replace(/\D/g, ''); // Remover todo lo que no sea dígito
+        });
+    });
 
     // Check if email ends with .com
     const isValidEmail = (email) => {
@@ -644,48 +658,71 @@ document.addEventListener("DOMContentLoaded", () => {
             alert(`⚠️ Generando orden de compra / revisión de inventario para:\n\n📦 ${productName}`);
         }
 
-        // 7. Ver Ficha Modal
-        const btnVerFicha = e.target.closest('[data-bs-target="#historyModal"]');
-        if (btnVerFicha) {
-            const row = btnVerFicha.closest('.card');
-            const patientNameEl = row.querySelector('.text-secondary');
-            let patientInfoText = patientNameEl ? patientNameEl.textContent.trim() : "";
-            let matchedPatient = null;
+        // 7. Ver Ficha Modal / Cartilla Digital Modal
+        const btnVerFicha = e.target.closest('[data-bs-target="#historyModal"], .btn-primary-custom');
+        if (btnVerFicha && (btnVerFicha.textContent.includes('Ver Ficha') || btnVerFicha.textContent.includes('Cartilla'))) {
+            const row = btnVerFicha.closest('.card') || btnVerFicha.closest('tr');
+            let patientInfoText = "";
+            if (row) {
+                const patientNameEl = row.querySelector('.text-secondary') || row.querySelector('.fw-bold') || row.querySelector('.card-title');
+                patientInfoText = patientNameEl ? patientNameEl.textContent.trim() : "";
+            }
             
-            // Usar dbPatients en vez de mockPatients
+            let matchedPatient = null;
             const patientsList = dbPatients.length > 0 ? dbPatients : mockPatients;
             for (let p of patientsList) {
-                // nameMatch ya no existe en la BD, usamos el name
                 if (patientInfoText.includes(p.name)) {
                     matchedPatient = p; break;
                 }
             }
 
-            const modal = document.getElementById('historyModal');
-            if (modal) {
+            const isVet = window.location.href.includes('vet');
+            const modal = document.getElementById('historyModal') || document.getElementById('genericActionModal');
+            
+            if (modal && matchedPatient) {
                 const mTitle = modal.querySelector('.modal-title');
-                const mBodyTitle = modal.querySelector('h4');
-                const mDesc = modal.querySelector('p.text-muted');
+                const mBody = modal.querySelector('.modal-body') || modal.querySelector('h4').parentElement;
                 
-                if (matchedPatient) {
-                    if (mTitle) mTitle.textContent = `Historial Clínico - ${matchedPatient.name}`;
-                    if (mBodyTitle) mBodyTitle.textContent = matchedPatient.name;
-                    if (mDesc) {
-                        mDesc.innerHTML = `
-                            <div class="text-start d-inline-block mt-3 p-3 bg-light rounded shadow-sm w-100">
-                                <p class="mb-2"><strong><i class="bi bi-tag"></i> Especie:</strong> ${matchedPatient.species}</p>
-                                <p class="mb-2"><strong><i class="bi bi-info-circle"></i> Raza:</strong> ${matchedPatient.breed}</p>
-                                <p class="mb-2"><strong><i class="bi bi-calendar"></i> Edad:</strong> ${matchedPatient.age}</p>
-                                <p class="mb-2"><strong><i class="bi bi-speedometer2"></i> Peso:</strong> ${matchedPatient.weight}</p>
-                                <hr>
-                                <p class="mb-0"><strong><i class="bi bi-journal-medical"></i> Notas Clínicas:</strong> ${matchedPatient.history}</p>
-                            </div>
-                        `;
-                    }
+                if (mTitle) mTitle.innerHTML = `<i class="bi bi-journal-medical me-2"></i>Historial Clínico - ${matchedPatient.name}`;
+                
+                let historyHtml = '';
+                if (isVet) {
+                    historyHtml = `
+                        <div class="mb-3 text-start">
+                            <label class="form-label fw-bold text-primary-custom"><i class="bi bi-journal-medical"></i> Expediente y Notas (Editable)</label>
+                            <textarea id="editHistoryTextarea" class="form-control" rows="6">${matchedPatient.history || ''}</textarea>
+                        </div>
+                        <button class="btn btn-primary-custom mt-2 w-100" onclick="saveHistory(${matchedPatient.id})"><i class="bi bi-save me-2"></i>Guardar Cambios</button>
+                    `;
                 } else {
-                    if (mTitle) mTitle.textContent = `Historial Clínico`;
-                    if (mBodyTitle) mBodyTitle.textContent = "Paciente";
-                    if (mDesc) mDesc.innerHTML = "No se encontraron detalles adicionales para este paciente en la base de datos.";
+                    historyHtml = `
+                        <hr>
+                        <h6 class="text-accent-color mt-3 text-start"><i class="bi bi-file-earmark-medical"></i> Expediente y Notas</h6>
+                        <p class="mb-0 text-muted text-start" style="white-space: pre-line;">${matchedPatient.history || 'Sin observaciones previas.'}</p>
+                    `;
+                }
+
+                mBody.innerHTML = `
+                    <div class="text-center mb-4">
+                        <img src="${matchedPatient.photo || 'images/dog_avatar.png'}" class="rounded-circle shadow-sm mb-3" style="width: 80px; height: 80px; object-fit: cover;" alt="${matchedPatient.name}">
+                        <h4>${matchedPatient.name}</h4>
+                        <span class="badge bg-success">Saludable</span>
+                    </div>
+                    <div class="text-start p-3 bg-light rounded shadow-sm w-100 border">
+                        <div class="row">
+                            <div class="col-6"><p class="mb-2"><strong><i class="bi bi-tag text-primary-custom"></i> Especie:</strong> ${matchedPatient.species}</p></div>
+                            <div class="col-6"><p class="mb-2"><strong><i class="bi bi-info-circle text-primary-custom"></i> Raza:</strong> ${matchedPatient.breed}</p></div>
+                            <div class="col-6"><p class="mb-2"><strong><i class="bi bi-calendar text-primary-custom"></i> Edad:</strong> ${matchedPatient.age}</p></div>
+                            <div class="col-6"><p class="mb-2"><strong><i class="bi bi-speedometer2 text-primary-custom"></i> Peso:</strong> ${matchedPatient.weight}</p></div>
+                        </div>
+                        ${historyHtml}
+                    </div>
+                `;
+
+                // Si es un modal genérico, mostrarlo manualmente
+                if (modal.id === 'genericActionModal') {
+                    const bsModal = new bootstrap.Modal(modal);
+                    bsModal.show();
                 }
             }
         }

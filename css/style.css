@@ -1,13 +1,15 @@
 :root {
-    --primary-color: #008080; /* Teal */
-    --secondary-color: #4DB6AC; /* Soft Teal/Blue */
-    --accent-color: #004D40; /* Dark Teal */
-    --background-color: #F5F9F9; /* Very light cool grey/blue */
-    --text-primary: #333333;
-    --text-secondary: #666666;
+    --primary-color: #1B4D6B;
+    --secondary-color: #7BC6A6;
+    --accent-color: #E88C5A;
+    --background-color: #F5F7FA;
+    --text-primary: #1F2A3A;
+    --text-secondary: #6B7A8A;
     --white: #FFFFFF;
-    --error-color: #E53935;
-    --success-color: #43A047;
+    --error-color: #C84A4A;
+    --success-color: #2E7D5E;
+    --warning-color: #E8B84A;
+    --border-color: #D1D5DB;
 }
 
 body {
@@ -43,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary-custom:hover {
     background-color: var(--accent-color);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 128, 128, 0.3);
+    box-shadow: 0 4px 12px rgba(27, 77, 107, 0.3);
     color: var(--white);
 }
 
@@ -61,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--primary-color);
     color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 128, 128, 0.2);
+    box-shadow: 0 4px 12px rgba(27, 77, 107, 0.2);
 }
 
 /* Cards */
@@ -81,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Form Controls */
 .form-control:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.25rem rgba(0, 128, 128, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(27, 77, 107, 0.25);
 }
 
 .form-label {
@@ -172,8 +174,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar {
     width: 280px;
-    background-color: var(--white);
-    border-right: 1px solid rgba(0,0,0,0.05);
+    background-color: var(--text-primary);
+    border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
     position: sticky;
@@ -184,35 +186,39 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar-header {
     padding: 20px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-header .text-primary-custom {
+    color: var(--white) !important;
 }
 
 .sidebar-menu {
     flex-grow: 1;
-    padding: 20px 0;
+    padding: 20px 12px;
     overflow-y: auto;
 }
 
 .sidebar-link {
     display: flex;
     align-items: center;
-    padding: 12px 24px;
+    padding: 12px 16px;
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.2s ease;
-    border-left: 4px solid transparent;
+    border-radius: 8px;
+    margin-bottom: 4px;
 }
 
 .sidebar-link:hover {
-    background-color: var(--background-color);
-    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--white);
 }
 
 .sidebar-link.active {
-    background-color: rgba(0, 128, 128, 0.05);
-    color: var(--primary-color);
-    border-left-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--white);
 }
 
 .sidebar-link i {
@@ -222,7 +228,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar-footer {
     padding: 20px;
-    border-top: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-footer .text-dark {
+    color: var(--white) !important;
+}
+
+.sidebar-footer .text-muted {
+    color: var(--text-secondary) !important;
 }
 
 .main-content {
@@ -367,13 +381,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- Dark Mode Styles --- */
 body.dark-mode {
-    --primary-color: #4DB6AC; /* Lighter Teal */
-    --secondary-color: #80CBC4; /* Softer Teal */
-    --accent-color: #E0F2F1; /* Very light text */
-    --background-color: #0f172a; /* Slate 900 - Soft dark blue-gray */
-    --text-primary: #f1f5f9; /* Slate 100 */
-    --text-secondary: #94a3b8; /* Slate 400 */
-    --white: #1e293b; /* Slate 800 - Card background in dark mode */
+    --primary-color: #3A7DA3; /* Lighter version of the new primary blue for dark mode */
+    --secondary-color: #94D6BA; /* Lighter version of the secondary green */
+    --accent-color: #F0A57C; /* Lighter version of the accent orange */
+    --background-color: #121A25; /* Very dark blue matching the new primary tone */
+    --text-primary: #F5F7FA;
+    --text-secondary: #9DA7B3;
+    --white: #1A2635; /* Card background in dark mode */
+    --border-color: #2D3A4B;
 }
 
 body.dark-mode .sidebar {

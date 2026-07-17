@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +14,11 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <div class="dashboard-layout">
-        
+
         <!-- Mobile Header -->
         <div class="mobile-header shadow-sm">
             <div class="d-flex align-items-center">
@@ -34,7 +36,7 @@
                 <img src="images/logo.png" alt="VetCare Logo" height="40" class="me-2">
                 <span class="fs-4 fw-bold text-primary-custom">VetCare</span>
             </div>
-            
+
             <div class="sidebar-menu">
                 <a href="vet_dashboard.html" class="sidebar-link">
                     <i class="bi bi-grid-1x2-fill"></i> Panel General
@@ -49,22 +51,25 @@
                     <div><i class="bi bi-box-seam"></i> Inventario</div>
                     <span class="badge bg-danger rounded-pill">2</span>
                 </a>
-                <a href="#" class="sidebar-link text-muted">
-                    <i class="bi bi-file-earmark-medical"></i> Reportes
+                <a href="vet_reports.html" class="sidebar-link">
+                    <i class="bi bi-bar-chart-fill"></i> Reportes
                 </a>
             </div>
 
             <div class="sidebar-footer">
                 <div class="dropdown">
-                    <a class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark" href="#" role="button" id="vetDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="images/vet_avatar.png" alt="Avatar" class="avatar-img me-2" style="width: 40px; height: 40px;">
+                    <a class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark" href="#"
+                        role="button" id="vetDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="images/vet_avatar.png" alt="Avatar" class="avatar-img me-2"
+                            style="width: 40px; height: 40px;">
                         <div>
                             <span class="fw-medium d-block" style="line-height: 1;">Dr. Ramírez</span>
                             <small class="text-muted">Veterinario Titular</small>
                         </div>
                     </a>
                     <ul class="dropdown-menu shadow border-0 w-100" aria-labelledby="vetDropdown">
-                        <li><a class="dropdown-item text-danger" href="index.html"><i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
+                        <li><a class="dropdown-item text-danger" href="index.html"><i
+                                    class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -72,14 +77,15 @@
 
         <!-- Main Content -->
         <main class="main-content fade-in">
-            
+
             <header class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
                 <div>
                     <h2 class="text-accent-color m-0">Agenda de Citas</h2>
                     <p class="text-secondary mt-1 mb-0">Gestión de turnos y reservaciones.</p>
                 </div>
                 <div>
-                    <button class="btn btn-primary-custom text-nowrap" data-bs-toggle="modal" data-bs-target="#addApptModal"><i class="bi bi-calendar-plus me-1"></i> Nueva Cita</button>
+                    <button class="btn btn-primary-custom text-nowrap" data-bs-toggle="modal"
+                        data-bs-target="#addApptModal"><i class="bi bi-calendar-plus me-1"></i> Nueva Cita</button>
                 </div>
             </header>
 
@@ -113,22 +119,36 @@
                                 <td></td>
                                 <td></td>
                                 <td class="bg-primary-subtle border-primary"></td>
-                                <td><div class="bg-info text-white p-1 rounded small">Limpieza Dental</div></td>
+                                <td>
+                                    <div class="bg-info text-white p-1 rounded small">Limpieza Dental</div>
+                                </td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td class="text-muted small">10:00 AM</td>
-                                <td><div class="bg-success text-white p-1 rounded small">Max - Revisión</div></td>
+                                <td>
+                                    <div class="bg-success text-white p-1 rounded small">Maya - Revisión</div>
+                                </td>
                                 <td></td>
-                                <td class="bg-primary-subtle border-primary"><div class="bg-warning text-dark p-1 rounded small fw-bold">Max - Revisión General</div></td>
+                                <td class="bg-primary-subtle border-primary">
+                                    <div class="bg-warning text-dark p-1 rounded small fw-bold">Canela - Revisión
+                                        General
+                                    </div>
+                                </td>
                                 <td></td>
-                                <td><div class="bg-secondary text-white p-1 rounded small">Reunión Equipo</div></td>
+                                <td>
+                                    <div class="bg-secondary text-white p-1 rounded small">Reunión Equipo</div>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="text-muted small">11:30 AM</td>
                                 <td></td>
-                                <td><div class="bg-danger text-white p-1 rounded small">Urgencia</div></td>
-                                <td class="bg-primary-subtle border-primary"><div class="bg-danger text-white p-1 rounded small">Luna - Vacuna Rabia</div></td>
+                                <td>
+                                    <div class="bg-danger text-white p-1 rounded small">Urgencia</div>
+                                </td>
+                                <td class="bg-primary-subtle border-primary">
+                                    <div class="bg-danger text-white p-1 rounded small">Leonidas - Vacuna Rabia</div>
+                                </td>
                                 <td></td>
                                 <td></td>
                             </tr>
@@ -139,9 +159,13 @@
                             <tr>
                                 <td class="text-muted small">02:00 PM</td>
                                 <td></td>
-                                <td><div class="bg-primary text-white p-1 rounded small">Rocky - Vacuna</div></td>
+                                <td>
+                                    <div class="bg-primary text-white p-1 rounded small">Rocky - Vacuna</div>
+                                </td>
                                 <td class="bg-primary-subtle border-primary"></td>
-                                <td><div class="bg-success text-white p-1 rounded small">Bella - Revisión</div></td>
+                                <td>
+                                    <div class="bg-success text-white p-1 rounded small">Bella - Revisión</div>
+                                </td>
                                 <td></td>
                             </tr>
                         </tbody>
@@ -158,13 +182,15 @@
             <div class="modal-content border-0 shadow">
                 <div class="modal-header bg-primary-custom text-white border-0">
                     <h5 class="modal-title"><i class="bi bi-calendar-plus me-2"></i>Agendar Nueva Cita</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
                     <form id="addApptForm">
                         <div class="mb-3">
                             <label class="form-label">Paciente</label>
-                            <input type="text" class="form-control" id="apptPatient" placeholder="Nombre de la mascota" required>
+                            <input type="text" class="form-control" id="apptPatient" placeholder="Nombre de la mascota"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Motivo</label>
@@ -214,28 +240,28 @@
         document.addEventListener('DOMContentLoaded', () => {
             const saveApptBtn = document.getElementById('saveApptBtn');
             const addApptForm = document.getElementById('addApptForm');
-            
+
             if (saveApptBtn) {
                 saveApptBtn.addEventListener('click', () => {
                     const patient = document.getElementById('apptPatient').value;
                     const reason = document.getElementById('apptReason').value;
                     const dayIdx = parseInt(document.getElementById('apptDay').value);
                     const hourIdx = parseInt(document.getElementById('apptHour').value);
-                    
-                    if(!patient) { alert("Ingrese el paciente"); return; }
-                    
+
+                    if (!patient) { alert("Ingrese el paciente"); return; }
+
                     let bgColor = 'bg-primary';
-                    if(reason === 'Urgencia') bgColor = 'bg-danger';
-                    if(reason === 'Limpieza') bgColor = 'bg-info';
-                    if(reason === 'Revisión') bgColor = 'bg-success';
+                    if (reason === 'Urgencia') bgColor = 'bg-danger';
+                    if (reason === 'Limpieza') bgColor = 'bg-info';
+                    if (reason === 'Revisión') bgColor = 'bg-success';
 
                     const tbody = document.querySelector('tbody');
                     const rows = tbody.querySelectorAll('tr');
-                    
+
                     if (rows[hourIdx]) {
                         const cells = rows[hourIdx].querySelectorAll('td');
                         // dayIdx matches the td index (1=Lun, 2=Mar, etc. since 0 is the time)
-                        if(cells[dayIdx]) {
+                        if (cells[dayIdx]) {
                             cells[dayIdx].innerHTML = `<div class="${bgColor} text-white p-1 rounded small">${patient} - ${reason}</div>`;
                         }
                     }
@@ -249,4 +275,5 @@
         });
     </script>
 </body>
+
 </html>
